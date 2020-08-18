@@ -1,24 +1,30 @@
 import React, { Fragment, useContext } from 'react';
-import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 import ContactItem from './ContactItem';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Contacts = props => {
   const contactContext = useContext(ContactContext);
 
-  const { contacts } = contactContext;
+  const { contacts, filtered } = contactContext;
 
   return (
     <Fragment>
-      {contacts.map(contact => (
-        <ContactItem contact={contact} key={contact.id} />
-      ))}
+      <TransitionGroup>
+        {filtered !== null
+          ? filtered.map(contact => (
+            <CSSTransition key={contact.id} timeout={500} classNames="item">
+              <ContactItem contact={contact} />
+            </CSSTransition>
+          ))
+          : contacts.map(contact => (
+            <CSSTransition key={contact.id} timeout={500} classNames="item">
+              <ContactItem contact={contact} />
+            </CSSTransition>
+          ))}
+      </TransitionGroup>
     </Fragment>
   )
-}
-
-Contacts.propTypes = {
-
 }
 
 export default Contacts
