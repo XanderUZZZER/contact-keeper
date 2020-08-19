@@ -35,9 +35,9 @@ const ContactForm = props => {
 
   const onSubmit = event => {
     event.preventDefault();
-    if (current === null) {
+    if (current === null && name !== '' && email !== '') {
       addContact(contact);
-    } else {
+    } else if (name !== '' && email !== '') {
       updateContact(contact);
     }
     clearAll();
