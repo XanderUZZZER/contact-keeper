@@ -71,7 +71,6 @@ const Login = props => {
         </div>
         <input type="submit" value="Login" className="btn btn-primary btn-block" />
       </form>
-      {'user2@gmail.com'}
     </div>
   )
 }

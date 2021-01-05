@@ -67,7 +67,6 @@ const Register = props => {
         </div>
         <input type="submit" value="Register" className="btn btn-primary btn-block" />
       </form>
-      {'user2@gmail.com'}
     </div>
   )
 }
